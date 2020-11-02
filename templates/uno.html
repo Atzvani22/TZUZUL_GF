@@ -1,0 +1,106 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Pricing Table</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" >
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='asp.css')}}">
+</head>
+<body>
+    {% for evento in eventos %}
+    <!-- Header -->
+    <div id="header-wrapper">
+      <header id="header" class="container">
+        <!-- Logo -->
+        <div id="logo">
+          <h1><a href="/inicio">Go faster</a></h1>
+        </div>
+        <!-- Nav -->
+        <nav id="nav">
+          <ul>
+            <li class="current"><a href="/login">Cerrar sesión</a></li>
+            <li class="current"><a href="/inicio">Regresar</a></li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+
+<section><div class="container-fluid">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="card text-center">
+              <div class="title">
+                <i class="fa fa-address-book" aria-hidden="true"></i>
+                <h2>{{evento.0}}</h2>
+              </div>
+              <div>
+                  <p> </p>
+              </div>
+              <div class="option">
+                <ul>
+                    <form action="/contrato" method="POST">
+                        <li><i class="fa fa-id-badge" aria-hidden="true"></i></li>
+                        <textarea name="Nombre" placeholder="{{evento.1}}"> {{evento.1}} </textarea>
+                        <li name="Domicilio"><i class="fa fa-map-signs" aria-hidden="true"></i></li>
+                        <textarea name="Domicilio" placeholder="{{evento.2}}"> {{evento.2}} </textarea>
+                        <li name="Correo"><i class="fa fa-envelope" aria-hidden="true"></i></li>
+                        <textarea name="Correo" placeholder="{{evento.3}}"> {{evento.3}} </textarea>
+                        <li name="Puesto"><i class="fa fa-user" aria-hidden="true"></i></li>
+                        <textarea name="Puesto" placeholder="{{evento.4}}"> {{evento.4}} </textarea>
+                        <li name="Area"><i class="fa fa-users" aria-hidden="true"></i> </li>
+                        <textarea name="Area" placeholder="{{evento.5}}"> {{evento.5}} </textarea>
+                        <li name="Sueldo"><i class="fa fa-usd" aria-hidden="true"></i></li>
+                        <textarea name="Sueldo" placeholder="{{evento.6}}"> {{evento.6}} </textarea>
+                        <li name="Horas"><i class="fa fa-clock-o" aria-hidden="true"></i></li>
+                        <textarea name="Horas" placeholder="{{evento.7}}"> {{evento.7}} </textarea>
+                        <li name="Fecha"><i class="fa fa-calendar" aria-hidden="true"></i></li>
+                        <textarea name="Fecha" placeholder="{{evento.8}}"> {{evento.8}} </textarea>
+                        <li name="Fecha"><i class="fa fa-calendar" aria-hidden="true"></i></li>
+                        <textarea name="Tipo" placeholder="{{evento.9}}"> {{evento.9}} </textarea>
+                        
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- END Col one -->  
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card text">
+                <div class="option">
+                  <ul>
+                    <button type="submit" name="validar"><i class="fa fa-files-o" aria-hidden="true"></i><a href="/validar">Validar datos</a></button>
+                    <button type="submit" name="contrato"> <i class="fa fa-file-pdf-o" aria-hidden="true"></i><a>Crear contrato</a></button>
+                    <button type="submit" name="validar"><i class="fa fa-files-o" aria-hidden="true"></i><a href="/email">Enviar contrato</a></button>
+                    <button type="submit" name="validar"><i class="fa fa-files-o" aria-hidden="true"></i><a href="/finalizar">Finalizar proceso</a></button>
+                  </ul>
+                </div>
+              </div>
+            </div> 
+        </div>
+      </div>
+    </div>
+  </form> 
+</section>
+</form>
+<!-- Footer -->
+
+<!-- Scripts -->
+
+<script src="static/assets/js/jquery.min.js"></script>
+<script src="static/assets/js/jquery.dropotron.min.js"></script>
+<script src="static/assets/js/browser.min.js"></script>
+<script src="staticassets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+
+{% else %}
+<label> No exite el aspirante, favor de seleccionar otro ID </label>
+{% endfor %} 
+
+</body>
+</html>

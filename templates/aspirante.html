@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aspirante</title>
+    <link rel="shortcut icon" href="" type ="image/x-icon">
+    <link rel="stylesheet" href="{{url_for('static',filename='tiamo.css')}}">
+
+    
+<body>
+    {% for evento in eventos %}
+    <header>
+        <nav>
+            <a href="/login"> Cerrar Sesión  </a> <br>
+        </nav>
+        <section class="textos-header">
+            <h1> Aspirante {{ evento.1 }} </h1>
+        </section>
+        </header>
+    <main>
+        <table class="table">
+            <tr>
+                <ul class="list-group">
+                    <form action="/contrato" method="post" name="contrato">
+                        
+                        <td><li class="list-group">
+                            <label> ID: </label>
+                            <textarea name="id"> {{ evento.0 }} </textarea><br>
+                            <label> Nombre: </label>
+                            <textarea name="Nombre"> {{ evento.1 }} </textarea><br>
+                            <label> Domicilio: </label>
+                            <textarea name="Domicilio"> {{ evento.2 }} </textarea><br>
+                            <label> Correo: </label>
+                            <textarea name="Correo"> {{ evento.3 }} </textarea><br>
+                            <label> Puesto: </label>
+                            <textarea name="Puesto"> {{ evento.4 }} </textarea><br>
+                            <label> Área: </label>
+                            <textarea name="Area"> {{ evento.5 }} </textarea><br>
+                            <label> Sueldo: </label>
+                            <textarea name="Sueldo"> {{ evento.6 }} </textarea><br>
+                            <label> Horas de trabajo: </label>
+                            <textarea name="Horas"> {{ evento.7 }} </textarea><br>
+                            <label> Fecha de ingreso: </label>
+                            <textarea name="Fecha"> {{ evento.8 }} </textarea><br>
+                            <label> Tipo de contrato: </label>
+                            <textarea name="Tipo"> {{ evento.9 }} </textarea><br>
+                            <label> Correo: </label>
+                            <textarea name="Correo"> {{ evento.10 }} </textarea><br>
+                            <label> Estatus: </label>
+                            <textarea name="Estatus"> {{ evento.11 }} </textarea><br>
+                            <button type="submit" class="btn btn-primary" name="contrato">Contrato</button><br>
+                            
+                        </form>
+                        <button type="submit"><a href="email">EMAIL</a></button>
+                            
+                            
+                    </td>
+                    {% else %}
+                    <label> No exite el aspirante, favor de seleccionar otro ID </label>
+                    {% endfor %}
+                </ul>
+            </tr>
+        </table>
+    </main>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>
